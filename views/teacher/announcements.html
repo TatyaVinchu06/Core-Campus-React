@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements | Faculty Dashboard</title>
+    <link rel="stylesheet" href="../../assets/css/shared/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/teacher/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+
+        <!-- Top Navigation Bar -->
+        <header class="top-nav">
+            <div class="nav-brand">
+                <h1>CORE Campus</h1>
+                <span class="portal-badge">🧑‍🏫 Faculty Portal</span>
+            </div>
+
+            <div class="nav-actions">
+                <div class="notification-badge">
+                    <i class="fas fa-bell"></i>
+                    <span class="count">4</span>
+                </div>
+
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <span class="user-name">Dr. Sharma</span>
+                        <span class="user-id">Faculty ID: CS_012</span>
+                    </div>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar">
+                <nav class="nav-menu">
+                    <div class="nav-section">
+                        <div class="section-title">ACADEMIC FLOW</div>
+
+                        <a href="dashboard.html" class="nav-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Overview</span>
+                        </a>
+
+                        <a href="assignments.html" class="nav-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Assignments</span>
+                        </a>
+
+                        <a href="submissions.html" class="nav-item">
+                            <i class="fas fa-flask"></i>
+                            <span>Submissions</span>
+                        </a>
+
+                        <a href="doubts.html" class="nav-item">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Doubts</span>
+                        </a>
+
+                        <a href="resources.html" class="nav-item">
+                            <i class="fas fa-book"></i>
+                            <span>Resources</span>
+                        </a>
+
+                        <a href="announcements.html" class="nav-item active">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Announcements</span>
+                        </a>
+                    </div>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <button class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-content">
+                        <h1>Announcements</h1>
+                        <p>Create and manage course announcements</p>
+                    </div>
+                    <button class="btn btn-primary" id="createAnnouncementBtn">
+                        <i class="fas fa-plus"></i>
+                        Create Announcement
+                    </button>
+                </div>
+
+                <!-- Announcement Filters -->
+                <div class="filters-section">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search announcements..." id="searchInput">
+                    </div>
+
+                    <div class="status-filters">
+                        <select id="audienceFilter">
+                            <option value="all">All Audience</option>
+                            <option value="CS301">CS301 Students</option>
+                            <option value="CS302">CS302 Students</option>
+                            <option value="CS303">CS303 Students</option>
+                            <option value="CS304">CS304 Students</option>
+                            <option value="all-students">All Students</option>
+                        </select>
+
+                        <select id="dateFilter">
+                            <option value="all">All Dates</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Announcements List -->
+                <div class="announcements-container">
+                    <!-- Announcement Item 1 -->
+                    <div class="announcement-item" data-audience="CS301" data-date="2026-01-22">
+                        <div class="announcement-header">
+                            <div class="announcement-title">
+                                <h3>Assignment Deadline Extended</h3>
+                                <span class="announcement-subject">CS301</span>
+                            </div>
+                            <div class="announcement-meta">
+                                <span class="time">Today, 10:30 AM</span>
+                                <span class="author">Dr. Sharma</span>
+                            </div>
+                        </div>
+
+                        <div class="announcement-content">
+                            <p>The deadline for Lab 5 has been extended by 2 days due to technical issues. New deadline
+                                is Jan 24, 2026.</p>
+                        </div>
+
+                        <div class="announcement-tags">
+                            <span class="tag urgent-tag">Important</span>
+                            <span class="tag">Deadline</span>
+                        </div>
+
+                        <div class="announcement-actions">
+                            <button class="action-btn edit-btn" title="Edit Announcement">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                            <button class="action-btn pin-btn" title="Pin Announcement">
+                                <i class="fas fa-thumbtack"></i>
+                                Pin
+                            </button>
+                            <button class="action-btn delete-btn" title="Delete Announcement">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Announcement Item 2 -->
+                    <div class="announcement-item" data-audience="CS302" data-date="2026-01-21">
+                        <div class="announcement-header">
+                            <div class="announcement-title">
+                                <h3>Midterm Exam Schedule Released</h3>
+                                <span class="announcement-subject">CS302</span>
+                            </div>
+                            <div class="announcement-meta">
+                                <span class="time">Yesterday, 2:15 PM</span>
+                                <span class="author">Dr. Sharma</span>
+                            </div>
+                        </div>
+
+                        <div class="announcement-content">
+                            <p>The midterm exam schedule for Web Development course is now available. Exam will be held
+                                on Jan 30, 2026 in Room A201.</p>
+                        </div>
+
+                        <div class="announcement-tags">
+                            <span class="tag">Exam</span>
+                            <span class="tag">Schedule</span>
+                        </div>
+
+                        <div class="announcement-actions">
+                            <button class="action-btn edit-btn" title="Edit Announcement">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                            <button class="action-btn pin-btn" title="Pin Announcement">
+                                <i class="fas fa-thumbtack"></i>
+                                Pin
+                            </button>
+                            <button class="action-btn delete-btn" title="Delete Announcement">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Announcement Item 3 -->
+                    <div class="announcement-item" data-audience="all-students" data-date="2026-01-20">
+                        <div class="announcement-header">
+                            <div class="announcement-title">
+                                <h3>Campus Maintenance Notice</h3>
+                                <span class="announcement-subject">Campus-wide</span>
+                            </div>
+                            <div class="announcement-meta">
+                                <span class="time">2 days ago, 9:00 AM</span>
+                                <span class="author">Admin</span>
+                            </div>
+                        </div>
+
+                        <div class="announcement-content">
+                            <p>The computer lab will be closed for maintenance from Jan 25-27. Alternative arrangements
+                                have been made for practical sessions.</p>
+                        </div>
+
+                        <div class="announcement-tags">
+                            <span class="tag">Maintenance</span>
+                            <span class="tag">Notice</span>
+                        </div>
+
+                        <div class="announcement-actions">
+                            <button class="action-btn edit-btn" title="Edit Announcement">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                            <button class="action-btn pinned-btn" title="Unpin Announcement" disabled>
+                                <i class="fas fa-thumbtack"></i>
+                                Pinned
+                            </button>
+                            <button class="action-btn delete-btn" title="Delete Announcement">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../../assets/js/teacher/announcements.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | CORE Campus</title>
+
+    <link rel="stylesheet" href="../../assets/css/shared/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/teacher/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .messenger-container {
+            display: flex;
+            height: calc(100vh - 120px);
+            /* Adjust based on top bar + padding */
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        /* Contacts Sidebar */
+        .contacts-area {
+            width: 320px;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            background: #f8fafc;
+        }
+
+        .contacts-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .contacts-search {
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .contacts-search input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            outline: none;
+        }
+
+        .contacts-search i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+
+        .contacts-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 12px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .contact-item:hover {
+            background: #e2e8f0;
+        }
+
+        .contact-item.active {
+            background: #e0e7ff;
+            border-left: 4px solid #003366;
+        }
+
+        .c-avatar {
+            width: 40px;
+            height: 40px;
+            background: #cbd5e1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #475569;
+            flex-shrink: 0;
+        }
+
+        .active .c-avatar {
+            background: #003366;
+            color: white;
+        }
+
+        .c-info {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .c-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .c-name {
+            font-weight: 600;
+            color: #0f172a;
+            font-size: 0.95rem;
+        }
+
+        .c-time {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .c-preview {
+            font-size: 0.85rem;
+            color: #64748b;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .active .c-preview {
+            color: #334155;
+        }
+
+        /* Chat Area */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .chat-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-user {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            border: 2px solid white;
+            position: relative;
+            margin-left: -12px;
+            margin-top: 25px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: #fdfdfd;
+        }
+
+        .msg {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        .msg-received {
+            align-self: flex-start;
+            background: #f1f5f9;
+            color: #334155;
+            border-bottom-left-radius: 2px;
+        }
+
+        .msg-sent {
+            align-self: flex-end;
+            background: #003366;
+            color: white;
+            border-bottom-right-radius: 2px;
+        }
+
+        .msg-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 4px;
+            text-align: right;
+            display: block;
+        }
+
+        .chat-input-area {
+            padding: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .chat-btn-icon {
+            background: none;
+            border: none;
+            color: #64748b;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .chat-btn-icon:hover {
+            color: #003366;
+        }
+
+        .msg-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 25px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .msg-input:focus {
+            border-color: #003366;
+        }
+
+        .send-btn {
+            background: #003366;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .send-btn:hover {
+            background: #002244;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app-container">
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+
+            <header class="top-bar" style="margin-bottom: 1rem;">
+                <div class="page-title">
+                    <h1>Messages</h1>
+                </div>
+                <div class="top-actions">
+                    <button class="btn-primary"
+                        style="padding: 8px 16px; border-radius: 8px; border: none; background: #003366; color: white; cursor: pointer;">
+                        <i class="fas fa-edit"></i> New Message
+                    </button>
+                </div>
+            </header>
+
+            <div class="messenger-container">
+
+                <!-- Sidebar -->
+                <aside class="contacts-area">
+                    <div class="contacts-header">
+                        <h3 style="margin:0; font-size:1.1rem; color:#0f172a;">Chats</h3>
+                        <div class="contacts-search">
+                            <i class="fas fa-search"></i>
+                            <input type="text" placeholder="Search people...">
+                        </div>
+                    </div>
+                    <div class="contacts-list">
+                        <!-- Active Contact -->
+                        <div class="contact-item active">
+                            <div class="c-avatar">AK</div>
+                            <div class="c-info">
+                                <div class="c-top">
+                                    <span class="c-name">Aditya Kumar</span>
+                                    <span class="c-time">10:42 AM</span>
+                                </div>
+                                <div class="c-preview">Sir, can I get an extension on the assignment?</div>
+                            </div>
+                        </div>
+
+                        <!-- Other Contacts -->
+                        <div class="contact-item">
+                            <div class="c-avatar">RS</div>
+                            <div class="c-info">
+                                <div class="c-top">
+                                    <span class="c-name">Riya Singh</span>
+                                    <span class="c-time">Yesterday</span>
+                                </div>
+                                <div class="c-preview">Thank you for the clarification in class!</div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="c-avatar">AM</div>
+                            <div class="c-info">
+                                <div class="c-top">
+                                    <span class="c-name">Arjun Mehta</span>
+                                    <span class="c-time">Jan 20</span>
+                                </div>
+                                <div class="c-preview">I will submit the report by tomorrow.</div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="c-avatar" style="background:#e0f2fe; color:#0284c7;">HOD</div>
+                            <div class="c-info">
+                                <div class="c-top">
+                                    <span class="c-name">HOD (CS Dept)</span>
+                                    <span class="c-time">Jan 18</span>
+                                </div>
+                                <div class="c-preview">Meeting scheduled for Friday at 3 PM.</div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Chat Area -->
+                <section class="chat-area">
+                    <div class="chat-header">
+                        <div class="chat-user">
+                            <div class="c-avatar" style="background: #003366; color: white;">AK</div>
+                            <div>
+                                <h3 style="margin:0; font-size:1rem; color:#0f172a;">Aditya Kumar</h3>
+                                <div style="font-size:0.75rem; color:#16a34a; font-weight:600;">Online</div>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:15px; color:#64748b; font-size:1.1rem;">
+                            <i class="fas fa-phone-alt" style="cursor:pointer;"></i>
+                            <i class="fas fa-video" style="cursor:pointer;"></i>
+                            <i class="fas fa-info-circle" style="cursor:pointer;"></i>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chatFeed">
+                        <div style="text-align:center; margin:1rem 0; color:#94a3b8; font-size:0.8rem;">Today</div>
+
+                        <div class="msg msg-received">
+                            Good morning Sir.
+                            <span class="msg-time">10:30 AM</span>
+                        </div>
+
+                        <div class="msg msg-received">
+                            I was facing some issues with my laptop properly not working.
+                            <span class="msg-time">10:30 AM</span>
+                        </div>
+
+                        <div class="msg msg-received">
+                            Can I get an extension on the assignment submission? Just for 1 day.
+                            <span class="msg-time">10:42 AM</span>
+                        </div>
+
+                    </div>
+
+                    <div class="chat-input-area">
+                        <button class="chat-btn-icon"><i class="fas fa-paperclip"></i></button>
+                        <input type="text" class="msg-input" id="msgInput" placeholder="Type a message...">
+                        <button class="chat-btn-icon"><i class="far fa-smile"></i></button>
+                        <button class="send-btn" id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </section>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script src="../../assets/js/teacher/sidebar.js"></script>
+    <script>
+        const sendBtn = document.getElementById('sendBtn');
+        const msgInput = document.getElementById('msgInput');
+        const chatFeed = document.getElementById('chatFeed');
+
+        function sendMessage() {
+            const text = msgInput.value.trim();
+            if (text) {
+                const html = `
+                    <div class="msg msg-sent">
+                        ${text}
+                        <span class="msg-time">Now</span>
+                    </div>
+                `;
+                chatFeed.insertAdjacentHTML('beforeend', html);
+                msgInput.value = '';
+                chatFeed.scrollTop = chatFeed.scrollHeight;
+            }
+        }
+
+        sendBtn.addEventListener('click', sendMessage);
+        msgInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+
+</html>

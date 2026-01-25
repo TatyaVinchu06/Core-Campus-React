@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Classes | CORE Campus</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/shared/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/teacher/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/shared/utilities.css">
+    <link rel="stylesheet" href="../../assets/css/components/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="page-title">
+                    <h1>My Classes</h1>
+                    <p class="date-display">Manage your active courses</p>
+                </div>
+                <div class="top-actions">
+                    <button class="btn-primary"
+                        style="padding: 10px 20px; border-radius: 8px; border: none; background: #003366; color: white; font-weight: 600; cursor: pointer;">
+                        <i class="fas fa-plus"></i> Create Class
+                    </button>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Class 1: DBMS -->
+                <div class="feed-item cursor-pointer" style="border-left: 5px solid #7c3aed;"
+                    onclick="window.location.href='class-detail.html?code=CS204&name=DBMS'">
+                    <div class="avatar-initial purple rounded-lg text-lg"
+                        style="width: 50px; height: 50px; font-size: 1.2rem;">DB</div>
+                    <div class="flex-1">
+                        <h3 class="text-main font-semibold text-lg mb-1">Database Management Systems</h3>
+                        <p class="text-sm text-muted">CS204 • 38 Students • Enrolled</p>
+                    </div>
+                    <div class="text-right">
+                        <button class="text-muted" style="background:none; border:none;"><i
+                                class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+
+                <!-- Class 2: DAA -->
+                <div class="feed-item cursor-pointer mt-4" style="border-left: 5px solid #059669;"
+                    onclick="window.location.href='class-detail.html?code=CS303&name=DAA'">
+                    <div class="avatar-initial green rounded-lg text-lg"
+                        style="width: 50px; height: 50px; font-size: 1.2rem;">DA</div>
+                    <div class="flex-1">
+                        <h3 class="text-main font-semibold text-lg mb-1">Design & Analysis of Algorithms</h3>
+                        <p class="text-sm text-muted">CS303 • 42 Students • Enrolled</p>
+                    </div>
+                    <div class="text-right">
+                        <button class="text-muted" style="background:none; border:none;"><i
+                                class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+
+
+                <!-- Class 3: DBMS Lab -->
+                <div class="feed-item cursor-pointer mt-4" style="border-left: 5px solid #db2777;"
+                    onclick="window.location.href='class-detail.html?code=CS204&name=DBMS+Lab'">
+                    <div class="avatar-initial pink rounded-lg text-lg"
+                        style="width: 50px; height: 50px; font-size: 1.2rem;">DB</div>
+                    <div class="flex-1">
+                        <h3 class="text-main font-semibold text-lg mb-1">DBMS Laboratory</h3>
+                        <p class="text-sm text-muted">CS204 • 38 Students • Enrolled</p>
+                    </div>
+                    <div class="text-right">
+                        <button class="text-muted" style="background:none; border:none;"><i
+                                class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+
+                <!-- Class 4: ADP Lab -->
+                <div class="feed-item cursor-pointer mt-4" style="border-left: 5px solid #7c3aed;"
+                    onclick="window.location.href='class-detail.html?code=CS305&name=ADP+Lab'">
+                    <div class="avatar-initial purple rounded-lg text-lg"
+                        style="width: 50px; height: 50px; font-size: 1.2rem;">AD</div>
+                    <div class="flex-1">
+                        <h3 class="text-main font-semibold text-lg mb-1">Advanced Programming Lab</h3>
+                        <p class="text-sm text-muted">CS305 • 35 Students • Enrolled</p>
+                    </div>
+                    <div class="text-right">
+                        <button class="text-muted" style="background:none; border:none;"><i
+                                class="fas fa-ellipsis-v"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="../../assets/js/teacher/sidebar.js"></script>
+</body>
+
+</html>

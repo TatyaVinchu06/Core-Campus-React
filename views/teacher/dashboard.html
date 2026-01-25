@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard | CORE Campus</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../../assets/css/shared/sidebar.css">
+    <link rel="stylesheet" href="../../assets/css/teacher/dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/shared/utilities.css">
+    <link rel="stylesheet" href="../../assets/css/components/tables.css">
+    <link rel="stylesheet" href="../../assets/css/components/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar placeholder (shared or new) -->
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+
+            <!-- Top Header -->
+            <header class="top-bar">
+                <div class="page-title">
+                    <h1 id="greeting">Good Morning, Dr. Sharma</h1>
+                    <p class="date-display" id="currentDate">Jan 24, 2026</p>
+                </div>
+
+                <div class="top-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search students, classes...">
+                    </div>
+                    <!-- Profile Dropdown Trigger (Simplified) -->
+                    <div class="avatar-initial rounded-full" style="background: #cbd5e1; overflow: hidden;">
+                        <img src="https://ui-avatars.com/api/?name=Dr+Sharma&background=0D8ABC&color=fff" alt="Profile"
+                            class="w-full h-full">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Stats Row -->
+            <div class="dashboard-grid">
+
+                <div class="welcome-section">
+                    <div class="welcome-text">
+                        <h2>Overview</h2>
+                        <p>Track your classes and student performance.</p>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="action-btn"><i class="fas fa-plus"></i> New Assignment</button>
+                        <button class="action-btn outline"><i class="fas fa-envelope"></i> Message Class</button>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="icon-box blue">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statBatches">--</h3>
+                            <p>Active Batches</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-box gold">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statReviews">--</h3>
+                            <p>Pending Reviews</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-box green">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statStudents">--</h3>
+                            <p>Total Students</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-split">
+
+                    <!-- Main Column -->
+                    <div class="section-container">
+                        <div class="section-header">
+                            <h3>Recent Submissions</h3>
+                            <a href="assignments.html">View All</a>
+                        </div>
+
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Assignment</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="font-semibold">Aditya Kumar</td>
+                                    <td class="text-muted">React Components</td>
+                                    <td><span class="status-badge on-time">On Time</span></td>
+                                    <td class="text-right">
+                                        <button class="table-action-btn">Grade</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Riya Singh</td>
+                                    <td class="text-muted">Database Schema</td>
+                                    <td><span class="status-badge late">Late</span></td>
+                                    <td class="text-right">
+                                        <button class="table-action-btn">Grade</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="font-semibold">Arjun Mehta</td>
+                                    <td class="text-muted">React Components</td>
+                                    <td><span class="status-badge on-time">On Time</span></td>
+                                    <td class="text-right">
+                                        <button class="table-action-btn">Grade</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Sidebar Right Column -->
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+                        <!-- Today's Schedule -->
+                        <div class="section-container">
+                            <div class="section-header">
+                                <h3>Today's Schedule</h3>
+                            </div>
+                            <!-- Reusing deadline-card style for schedule -->
+                            <div class="deadline-card">
+                                <div class="task-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                <div class="task-content">
+                                    <h4>CS301 - Web Dev</h4>
+                                    <div class="task-meta">
+                                        <span><i class="far fa-clock"></i> 09:00 - 10:30</span>
+                                        <span>Lecture Hall A</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="deadline-card">
+                                <div class="task-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="task-content">
+                                    <h4>Department Meeting</h4>
+                                    <div class="task-meta">
+                                        <span><i class="far fa-clock"></i> 11:30 - 12:15</span>
+                                        <span>Conf Room 2</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- My Classes -->
+                        <div class="section-container">
+                            <div class="section-header">
+                                <h3>My Classes</h3>
+                            </div>
+
+                            <!-- Class 1: DBMS -->
+                            <div class="feed-item cursor-pointer"
+                                onclick="window.location.href='class-detail.html?code=CS204&name=DBMS'">
+                                <div class="avatar-initial purple rounded-md">DB</div>
+                                <div>
+                                    <h4 class="text-sm mb-1">DBMS</h4>
+                                    <p class="text-xs text-muted">CS204 • 38 Students</p>
+                                </div>
+                            </div>
+
+                            <!-- Class 2: DAA -->
+                            <div class="feed-item cursor-pointer mt-2"
+                                onclick="window.location.href='class-detail.html?code=CS303&name=DAA'">
+                                <div class="avatar-initial green rounded-md">DA</div>
+                                <div>
+                                    <h4 class="text-sm mb-1">DAA</h4>
+                                    <p class="text-xs text-muted">CS303 • 42 Students</p>
+                                </div>
+                            </div>
+
+                            <!-- Class 3: DBMS Lab -->
+                            <div class="feed-item cursor-pointer mt-2"
+                                onclick="window.location.href='class-detail.html?code=CS204&name=DBMS+Lab'">
+                                <div class="avatar-initial pink rounded-md">DB</div>
+                                <div>
+                                    <h4 class="text-sm mb-1">DBMS Lab</h4>
+                                    <p class="text-xs text-muted">CS204 • 38 Students</p>
+                                </div>
+                            </div>
+
+                            <!-- Class 4: ADP Lab -->
+                            <div class="feed-item cursor-pointer mt-2"
+                                onclick="window.location.href='class-detail.html?code=CS305&name=ADP+Lab'">
+                                <div class="avatar-initial purple rounded-md">AD</div>
+                                <div>
+                                    <h4 class="text-sm mb-1">ADP Lab</h4>
+                                    <p class="text-xs text-muted">CS305 • 35 Students</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script src="../../assets/js/shared/storage.js"></script>
+    <script src="../../assets/js/teacher/dashboard.js"></script>
+    <script src="../../assets/js/teacher/sidebar.js"></script>
+    <script src="../../assets/js/shared/search-utils.js"></script>
+    <script>
+        // Inline script to render the sidebar into the container
+        // In a real app, this would be imported or handled by a framework
+        const sidebarContainer = document.getElementById('sidebar-container');
+        // Sidebar handled by sidebar.js now
+
+        // Initialize Search for "My Classes"
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.SearchUtils) {
+                // Search input selector is generic `input[type="text"]` inside .search-box
+                // We need to give it an ID to be precise
+                const searchInput = document.querySelector('.search-box input');
+                if (searchInput) {
+                    searchInput.id = 'dashboardSearch';
+                    SearchUtils.init('dashboardSearch', '.feed-item', 'h4'); // Searching h4 inside feed-item
+                }
+            }
+        });
+
+
+        // Update Date
+        const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', dateOptions);
+    </script>
+</body>
+
+</html>
