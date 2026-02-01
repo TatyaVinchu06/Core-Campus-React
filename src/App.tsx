@@ -3,7 +3,18 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider, useAuth } from './context/AuthContext';
 import Login from './pages/auth/Login';
 import StudentDashboard from './pages/student/Dashboard';
+import StudentAssignments from './pages/student/Assignments';
+import StudentClasses from './pages/student/Classes';
+import StudentDoubts from './pages/student/Doubts';
+import StudentResources from './pages/student/Resources';
+import StudentWorkspace from './pages/student/Workspace';
+import StudentMessages from './pages/student/Messages';
+import StudentNotices from './pages/student/Notices';
 import TeacherDashboard from './pages/teacher/Dashboard';
+import TeacherAssignments from './pages/teacher/Assignments';
+import TeacherClasses from './pages/teacher/Classes';
+import Gradebook from './pages/teacher/Gradebook';
+import Schedule from './pages/teacher/Schedule';
 import DashboardLayout from './components/layout/DashboardLayout';
 
 import './assets/css/shared/utilities.css';
@@ -30,7 +41,13 @@ const AppRoutes = () => {
         </ProtectedRoute>
       }>
         <Route path="/student/dashboard" element={<StudentDashboard />} />
-        {/* Add more student routes here */}
+        <Route path="/student/classes" element={<StudentClasses />} />
+        <Route path="/student/assignments" element={<StudentAssignments />} />
+        <Route path="/student/doubts" element={<StudentDoubts />} />
+        <Route path="/student/resources" element={<StudentResources />} />
+        <Route path="/student/workspace" element={<StudentWorkspace />} />
+        <Route path="/student/messages" element={<StudentMessages />} />
+        <Route path="/student/notices" element={<StudentNotices />} />
       </Route>
 
       {/* Teacher Routes */}
@@ -40,6 +57,10 @@ const AppRoutes = () => {
         </ProtectedRoute>
       }>
         <Route path="/teacher/dashboard" element={<TeacherDashboard />} />
+        <Route path="/teacher/classes" element={<TeacherClasses />} />
+        <Route path="/teacher/assignments" element={<TeacherAssignments />} />
+        <Route path="/teacher/grades" element={<Gradebook />} />
+        <Route path="/teacher/schedule" element={<Schedule />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/" />} />

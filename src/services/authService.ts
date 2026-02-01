@@ -35,7 +35,13 @@ export const authService = {
     },
 
     getCurrentUser: (): User | null => {
-        const stored = sessionStorage.getItem('currentUser');
-        return stored ? JSON.parse(stored) : null;
+        try {
+            const stored = sessionStorage.getItem('currentUser');
+            return stored ? JSON.parse(stored) : null;
+        } catch (error) {
+            console.error('Failed to parse user from session storage', error);
+            sessionStorage.removeItem('currentUser');
+            return null;
+        }
     }
 };

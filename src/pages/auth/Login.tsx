@@ -81,23 +81,29 @@ const Login: React.FC = () => {
                 >
                     {/* Mascot */}
                     <div className="mascot-container">
-                        <svg id="owl-mascot" viewBox="0 0 120 100" width="140" height="110">
-                            {/* Body */}
-                            <path d="M60,100 C90,100 110,80 110,50 C110,20 90,0 60,0 C30,0 10,20 10,50 C10,80 30,100 60,100 Z" fill="#fff" />
-                            {/* Eyes Container */}
-                            <g id="eyes">
-                                <circle className="eye-white" cx="40" cy="45" r="12" fill="#e2e8f0" stroke="#cbd5e1" strokeWidth="1" ref={eyeWhiteRef} />
-                                <circle className="eye-white" cx="80" cy="45" r="12" fill="#e2e8f0" stroke="#cbd5e1" strokeWidth="1" />
+                        <svg id="owl-mascot" viewBox="0 0 200 150">
+                            <g id="owl-body">
+                                <path d="M40,90 Q100,140 160,90 Q180,30 100,20 Q20,30 40,90" fill="#003366" />
+                                <path d="M35,50 L20,10 L60,35 Z" fill="#002244" />
+                                <path d="M165,50 L180,10 L140,35 Z" fill="#002244" />
+                            </g>
+
+                            <g id="eyes-group">
+                                <circle className="eye-white" cx="70" cy="75" r="22" fill="#fff" ref={eyeWhiteRef} />
+                                <circle className="eye-white" cx="130" cy="75" r="22" fill="#fff" />
                                 <g id="pupils" ref={pupilsRef}>
-                                    <circle cx="40" cy="45" r="5" fill="#0f172a" />
-                                    <circle cx="80" cy="45" r="5" fill="#0f172a" />
+                                    <circle className="pupil" cx="70" cy="75" r="9" fill="#1a202c" />
+                                    <circle className="pupil" cx="130" cy="75" r="9" fill="#1a202c" />
                                 </g>
                             </g>
-                            {/* Beak */}
-                            <path d="M55,55 L65,55 L60,65 Z" fill="#f59e0b" />
-                            {/* Arms */}
-                            <path id="arm-left" className="owl-arm" d="M10,60 Q5,40 25,60" stroke="#cbd5e1" strokeWidth="8" fill="none" strokeLinecap="round" />
-                            <path id="arm-right" className="owl-arm" d="M110,60 Q115,40 95,60" stroke="#cbd5e1" strokeWidth="8" fill="none" strokeLinecap="round" />
+
+                            <path d="M100,90 L90,105 L110,105 Z" fill="#FFD700" />
+
+                            <g id="arms">
+                                <path id="arm-left" className="owl-arm" d="M30,110 Q10,130 40,150 L60,150 Z" fill="#002244" />
+                                <path id="arm-right" className="owl-arm" d="M170,110 Q190,130 160,150 L140,150 Z"
+                                    fill="#002244" />
+                            </g>
                         </svg>
                     </div>
 
