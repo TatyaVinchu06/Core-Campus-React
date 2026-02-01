@@ -1,65 +1,76 @@
-# 🎓 CORE Campus
+# CORE Campus | React + TypeScript
 
-CORE Campus is a modern, responsive web-based Learning Management System (LMS) prototype designed to streamline interaction between students and faculty. It features a clean, unified interface for managing assignments, resources, classes, and doubts.
+> **The Operating System for College Engineering**
+> A unified workspace where code meets campus. Manage assignments, debug logic, and collaborate faster.
 
-## 🚀 Features
+## 🚀 Overview
 
-### For Students
-- **Dashboard**: View upcoming deadlines, notifications, and daily schedule.
-- **Assignments**: Submit work, check grades, and view feedback.
-- **Resources**: Access study materials (PDFs, Videos, Links) organized by subject/unit.
-- **Doubts**: Ask questions and get answers from faculty or peers.
-- **Workspace**: A dedicated area for focused study.
+This repository contains the **React + TypeScript** implementation of the CORE Campus platform. It has been successfully migrated from a legacy static site to a modern Single Page Application (SPA) using Vite.
 
-### For Teachers
-- **Faculty Dashboard**: Overview of active batches, pending reviews, and schedule.
-- **Class Management**: specific views for each class (e.g., DBMS, DAA) with stream/announcements.
-- **Assignment Management**: Create, edit, and grade assignments with file upload support.
-- **Student Tracking**: Monitor student progress and submissions.
+### Key Features
+- **Role-Based Access**: Dedicated Dashboards for Students and Teachers.
+- **Modern UI/UX**: Premium aesthetic with glassmorphism, smooth animations, and responsive design.
+- **Interactive Login**: Featuring the signature animated Owl Mascot that tracks mouse movement.
+- **Component Architecture**: Reusable layouts, sidebars, and top navigation bars.
 
-## 🛠️ Technology Stack
-- **Frontend**: HTML5, CSS3 (Modular & Utility-based), Vanilla JavaScript (ES6+).
-- **Styling**: Custom CSS architecture with shared utilities (`utilities.css`) and component-based styles (`tables.css`, `profile.css`).
-- **Icons**: FontAwesome 6.
-- **Fonts**: Inter & Outfit (Google Fonts).
+## 🛠️ Tech Stack
+- **Framework**: [React](https://react.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: Native CSS (Modular & Scalable)
+- **Routing**: [React Router](https://reactrouter.com/)
 
 ## 📂 Project Structure
 
-```
-core-campus/
-├── assets/
-│   ├── css/
-│   │   ├── components/   # specialized styles (tables, profile)
-│   │   ├── shared/       # global utilities & variables
-│   │   ├── student/      # student-view specific styles
-│   │   └── teacher/      # teacher-view specific styles
-│   └── js/
-│       ├── shared/       # SearchUtils, FileHandler, Storage logic
-│       ├── student/      # Student interactions
-│       └── teacher/      # Teacher interactions
-├── config/
-│   └── credentials.js    # Mock login credentials configuration
-├── views/
-│   ├── student/          # Student HTML pages (dashboard, resources, etc.)
-│   └── teacher/          # Teacher HTML pages (dashboard, assignments, etc.)
-└── index.html            # Landing / Login Entry point
+```text
+src/
+├── assets/         # Global styles (CSS) and static assets
+├── components/     # Reusable UI components
+│   └── layout/     # App shell (Sidebar, TopBar)
+├── context/        # Global state (Auth, Theme)
+├── pages/          # Application views
+│   ├── auth/       # Login/Signup
+│   ├── student/    # Student-specific pages
+│   └── teacher/    # Teacher-specific pages
+├── services/       # API integration & Business logic
+└── types/          # TypeScript definitions
 ```
 
-## ⚡ Recent Improvements
-- **Modular CSS**: Transformed monolithic CSS into maintainable modules, removing inline styles for cleaner code.
-- **Smart Search**: Integrated client-side search functionality across dashboards.
-- **Drag & Drop Uploads**: Added intuitive file upload interfaces for resources and assignments.
+## ⚡ Getting Started
 
-## 🏁 Getting Started
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-1.  **Clone/Download** the repository.
-2.  Open `index.html` in your browser.
-3.  **Login Credentials** (Mock):
-    *   **Student**: `student` / `student123`
-    *   **Teacher**: `teacher` / `teacher123`
-    *(See `config/credentials.js` for more)*
+### Installation
 
-## 🔮 Future Roadmap
-- [ ] Backend integration (Node.js/Python).
-- [ ] Real-time Socket.io messaging.
-- [ ] Database implementation (MongoDB/SQL).
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/TatyaVinchu06/Core-Campus-React.git
+   cd Core-Campus-React
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+   Access the app at `http://localhost:5173`.
+
+## 🏗️ Building for Production
+
+To generate a production-ready build:
+```bash
+npm run build
+```
+The output will be in the `dist/` directory.
+
+---
+
+<footer style="text-align: center; margin-top: 50px; color: #64748b;">
+    <p>&copy; 2026 Core Campus. All rights reserved.</p>
+</footer>
