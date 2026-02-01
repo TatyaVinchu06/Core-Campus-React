@@ -1,126 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CORE Campus | OS for College</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/landing.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CORE Campus | OS for College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
-
-    <div class="bg-mesh"></div>
-
-    <nav class="nav-glass">
-        <div class="container nav-content">
-            <div class="logo">
-                <i class="fas fa-cube blue-icon"></i> CORE Campus
-            </div>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#about">Mission</a>
-                <a href="views/login.html" class="btn-login">Login</a>
-            </div>
-        </div>
-    </nav>
-
-    <main class="hero container">
-        <div class="animate__animated animate__fadeInUp">
-            <span
-                style="font-size: 0.9rem; font-weight: 600; color: #60a5fa; letter-spacing: 1px; text-transform: uppercase;">v1.0
-                Beta Live</span>
-            <h1>The Operating System for<br>College Engineering</h1>
-            <p>A unified workspace where code meets campus. Manage assignments, debug logic, and collaborate faster.</p>
-
-            <a href="views/login.html" class="cta-btn">
-                Launch System <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-
-        <div class="bento-grid animate__animated animate__fadeInUp animate__delay-1s">
-
-            <!-- Card 1: Main Feature -->
-            <div class="bento-card card-large">
-                <div>
-                    <div class="card-icon blue-icon"><i class="fas fa-code"></i></div>
-                    <h3>Integrated Dev Environment</h3>
-                    <p>Why switch tabs? Write, compile, and submit your lab assignments directly within the platform.
-                    </p>
-                </div>
-                <div class="mock-ui">
-                    <div class="code-line w-60"></div>
-                    <div class="code-line w-80"></div>
-                    <div class="code-line w-40"></div>
-                </div>
-            </div>
-
-            <!-- Card 2: Stats -->
-            <div class="bento-card">
-                <div class="card-icon green-icon"><i class="fas fa-chart-line"></i></div>
-                <h3>Real-time Analytics</h3>
-                <p>Track your attendance, GPA, and assignment submission streaks visually.</p>
-                <div style="font-size: 2.5rem; font-weight: 800; color: #f8fafc; margin-top: auto;">98%</div>
-            </div>
-
-            <!-- Card 3: Tall Feature -->
-            <div class="bento-card card-tall">
-                <div class="card-icon gold-icon"><i class="fas fa-tasks"></i></div>
-                <h3>Assignment Tracker</h3>
-                <p>Never miss a deadline again.</p>
-                <div style="margin-top: 20px;">
-                    <div
-                        style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-                        <div
-                            style="display:flex; justify-content:space-between; font-size: 0.8rem; margin-bottom: 5px;">
-                            <span>DBMS Lab</span>
-                            <span style="color: #fbbf24;">Due Tmrw</span>
-                        </div>
-                        <div style="height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;">
-                            <div style="width: 70%; height: 100%; background: #fbbf24; border-radius: 2px;"></div>
-                        </div>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;">
-                        <div
-                            style="display:flex; justify-content:space-between; font-size: 0.8rem; margin-bottom: 5px;">
-                            <span>DAA Project</span>
-                            <span style="color: #34d399;">Submitted</span>
-                        </div>
-                        <div style="height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px;">
-                            <div style="width: 100%; height: 100%; background: #34d399; border-radius: 2px;"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 4: Community -->
-            <div class="bento-card">
-                <div class="card-icon purple-icon"><i class="fas fa-users"></i></div>
-                <h3>Peer Connections</h3>
-                <p>Find study buddies and solve doubts together in class-specific forums.</p>
-            </div>
-
-            <!-- Card 5: Extra -->
-            <div class="bento-card card-large">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <div>
-                        <h3>Faculty Connect</h3>
-                        <p>Direct line to your professors for feedback.</p>
-                    </div>
-                    <i class="fas fa-comments" style="font-size: 3rem; opacity: 0.2;"></i>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 
 </html>
