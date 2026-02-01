@@ -10,6 +10,7 @@ import StudentResources from './pages/student/Resources';
 import StudentWorkspace from './pages/student/Workspace';
 import StudentMessages from './pages/student/Messages';
 import StudentNotices from './pages/student/Notices';
+import StudentClassDetail from './pages/student/ClassDetail';
 import TeacherDashboard from './pages/teacher/Dashboard';
 import TeacherAssignments from './pages/teacher/Assignments';
 import TeacherClasses from './pages/teacher/Classes';
@@ -42,6 +43,7 @@ const AppRoutes = () => {
       }>
         <Route path="/student/dashboard" element={<StudentDashboard />} />
         <Route path="/student/classes" element={<StudentClasses />} />
+        <Route path="/student/class/:classId" element={<StudentClassDetail />} />
         <Route path="/student/assignments" element={<StudentAssignments />} />
         <Route path="/student/doubts" element={<StudentDoubts />} />
         <Route path="/student/resources" element={<StudentResources />} />
